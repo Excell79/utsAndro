@@ -23,11 +23,14 @@ public class ListActivity extends AppCompatActivity {
             daftar_nama.add("data masih kosong");
         }
 
-        // Repeat the names up to 20 times
+
         ArrayList<String> repeatedNames = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
-
-            repeatedNames.addAll(daftar_nama);
+            if ((i + 1) % 2 == 0) {
+                for (String name : daftar_nama) {
+                    repeatedNames.add((i + 1) + ". " + name);
+                }
+            }
         }
 
         ArrayAdapter<String> ad_nama = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, repeatedNames);
